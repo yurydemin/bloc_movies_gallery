@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class Movie extends Equatable {
-  final String id;
+  final int id;
   final String title;
   final String description;
   final String poster;
@@ -19,7 +19,7 @@ class Movie extends Equatable {
   }
 
   Movie copyWith(
-      {String id,
+      {int id,
       String title,
       String description,
       String poster,

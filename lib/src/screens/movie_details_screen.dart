@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
-  final String movieId;
+  final int movieId;
 
   const MovieDetailsScreen({Key key, @required this.movieId}) : super(key: key);
 
