@@ -14,7 +14,8 @@ class MoviesLoadSuccessState extends MoviesState {
   final List<Movie> movies;
   final List<Movie> favorites;
 
-  const MoviesLoadSuccessState([this.movies = const [], this.favorites]);
+  const MoviesLoadSuccessState(
+      [this.movies = const [], this.favorites = const []]);
 
   @override
   List<Object> get props => [movies, favorites];

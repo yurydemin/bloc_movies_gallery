@@ -32,48 +32,51 @@ class MovieDetailsScreen extends StatelessWidget {
                       child: Stack(children: [
                         Hero(
                           tag: movie.id,
-                          child: Image.network(
-                            movie.poster,
-                            //fit: BoxFit.fitWidth,
+                          child: Center(
+                            child: Image.network(
+                              movie.poster,
+                            ),
                           ),
                         ),
                         Positioned(
-                          bottom: -10,
-                          left: 0,
+                          bottom: 0,
+                          left: 30,
                           child: Hero(
                             tag: '${movie.id}-download',
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.file_download,
-                                color: Colors.white,
-                              ),
-                              onPressed: () async {
+                            child: GestureDetector(
+                              onTap: () async {
                                 GallerySaver.saveImage(movie.poster).then((bool
                                         success) =>
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(content: Text('Saved'))));
                               },
+                              child: Icon(
+                                Icons.file_download,
+                                size: 30.0,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
                         Positioned(
-                          bottom: -10,
-                          right: 0,
+                          bottom: 0,
+                          right: 30,
                           child: Hero(
                             tag: '${movie.id}-icon',
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.star,
-                                color: movie.isFavorite
-                                    ? Colors.yellow
-                                    : Colors.white,
-                              ),
-                              onPressed: () {
+                            child: GestureDetector(
+                              onTap: () {
                                 BlocProvider.of<MoviesBloc>(context).add(
                                   MovieToogleFavoriteEvent(movie.copyWith(
                                       isFavorite: !movie.isFavorite)),
                                 );
                               },
+                              child: Icon(
+                                Icons.star,
+                                size: 30.0,
+                                color: movie.isFavorite
+                                    ? Colors.yellow
+                                    : Colors.white,
+                              ),
                             ),
                           ),
                         ),
@@ -96,7 +99,6 @@ class MovieDetailsScreen extends StatelessWidget {
                         child: Material(
                           child: Text(
                             movie.tagline,
-                            overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                           ),
                         ),
@@ -109,7 +111,6 @@ class MovieDetailsScreen extends StatelessWidget {
                         child: Material(
                           child: Text(
                             movie.description,
-                            overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                           ),
                         ),

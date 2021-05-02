@@ -52,13 +52,13 @@ class MovieItem extends StatelessWidget {
                       right: 0,
                       child: Hero(
                         tag: '${movie.id}-icon',
-                        child: IconButton(
-                          icon: Icon(
+                        child: GestureDetector(
+                          onTap: onFavoriteTap,
+                          child: Icon(
                             Icons.star,
                             color:
                                 movie.isFavorite ? Colors.yellow : Colors.white,
                           ),
-                          onPressed: onFavoriteTap,
                         ),
                       ),
                     ),
