@@ -48,35 +48,42 @@ class MovieItem extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: -20,
-                      right: 20,
+                      bottom: -10,
+                      right: 0,
                       child: Hero(
                         tag: '${movie.id}-icon',
-                        child: Material(
-                          child: InkWell(
-                            onTap: onFavoriteTap,
-                            child: Container(
-                              padding: EdgeInsets.all(10),
-                              color: movie.isFavorite
-                                  ? Colors.yellow
-                                  : Colors.white,
-                              child: Icon(Icons.star),
-                            ),
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.star,
+                            color:
+                                movie.isFavorite ? Colors.yellow : Colors.white,
                           ),
+                          onPressed: onFavoriteTap,
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
+              Hero(
+                tag: '${movie.id}-title',
+                child: Material(
+                  child: Text(
+                    movie.title,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Hero(
-                  tag: '${movie.id}-description',
+                  tag: '${movie.id}-tagline',
                   child: Material(
                     child: Text(
-                      movie.description,
+                      movie.tagline,
                       overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.left,
                     ),
                   ),
                 ),

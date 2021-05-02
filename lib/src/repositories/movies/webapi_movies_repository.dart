@@ -4,7 +4,7 @@ import 'package:bloc_movies_gallery/src/repositories/movies/movies_repository.da
 
 class WebApiMoviesRepository implements MoviesRepository {
   static const _url =
-      "http://my-json-server.typicode.com/yurydemin/fake_json_server/movies/";
+      "https://my-json-server.typicode.com/yurydemin/fake_json_server/movies/";
   Dio _dio = Dio();
 
   @override
