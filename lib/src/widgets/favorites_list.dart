@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:bloc_movies_gallery/src/blocs/movies/movies_bloc.dart';
 import 'package:bloc_movies_gallery/src/blocs/movies/movies_state.dart';
+import 'package:bloc_movies_gallery/src/blocs/movies/movies_event.dart';
 import 'package:bloc_movies_gallery/src/keys.dart';
 import 'package:bloc_movies_gallery/src/screens/movie_details_screen.dart';
 import 'package:bloc_movies_gallery/src/widgets/movie_item.dart';
@@ -34,7 +35,12 @@ class FavoritesList extends StatelessWidget {
                     }),
                   );
                 },
-                onFavoriteTap: () {},
+                onFavoriteTap: () {
+                  BlocProvider.of<MoviesBloc>(context).add(
+                    MovieToogleFavoriteEvent(
+                        favorite.copyWith(isFavorite: !favorite.isFavorite)),
+                  );
+                },
               );
             },
           );
