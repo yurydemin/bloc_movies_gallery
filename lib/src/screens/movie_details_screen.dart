@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:bloc_movies_gallery/src/blocs/movies/movies_bloc.dart';
 import 'package:bloc_movies_gallery/src/blocs/movies/movies_state.dart';
 import 'package:bloc_movies_gallery/src/blocs/movies/movies_event.dart';
-import 'package:gallery_saver/gallery_saver.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final int movieId;

@@ -48,8 +48,8 @@ class MovieItem extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: -10,
-                      right: 0,
+                      bottom: 0,
+                      right: 10,
                       child: Hero(
                         tag: '${movie.id}-icon',
                         child: GestureDetector(

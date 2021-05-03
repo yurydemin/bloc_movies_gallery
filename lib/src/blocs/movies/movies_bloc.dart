@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:bloc_movies_gallery/src/repositories/movies/movies_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc_movies_gallery/src/repositories/movies/movies_repository.dart';
 import 'package:bloc_movies_gallery/src/blocs/movies/movies_event.dart';
 import 'package:bloc_movies_gallery/src/blocs/movies/movies_state.dart';
 import 'package:bloc_movies_gallery/src/models/movie.dart';
@@ -19,9 +19,6 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     } else if (event is MovieToogleFavoriteEvent) {
       yield* _mapMovieToogleFavoriteToState(event);
     }
-    /*else if (event is MovieSearchEvent) {
-      yield* _mapMovieSearchToState(event);
-    }*/
   }
 
   Stream<MoviesState> _mapMoviesLoadedToState() async* {
@@ -60,6 +57,4 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       yield MoviesLoadSuccessState(updatedMovies, favorites);
     }
   }
-
-  //Stream<MoviesState> _mapMovieSearchToState(MovieSearchEvent event) async* {}
 }
